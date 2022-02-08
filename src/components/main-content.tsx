@@ -6,9 +6,9 @@ import { MainComponent } from './assets/style/main-style';
 
 export default function MainContent(): JSX.Element {
   const [filme, setFilme] = useState<CreateFilmeInformationProtocol>();
+  const createFilmeInformation = new CreateFilmeInformation();
 
   const displayFilmeInformation = async (): Promise<void> => {
-    const createFilmeInformation = new CreateFilmeInformation();
     await createFilmeInformation
       .search()
       .then(() => {

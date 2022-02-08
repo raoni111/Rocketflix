@@ -1,4 +1,17 @@
-import styled from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
+
+function displayFlex(
+  flexDirection: string,
+  justifyContent: string,
+  alignItems: string,
+): FlattenSimpleInterpolation {
+  return css`
+    display: flex;
+    flex-direction: ${flexDirection};
+    justify-content: ${justifyContent};
+    align-items: ${alignItems};
+  `;
+}
 
 export const MainComponent = styled.section`
   :root {
@@ -19,13 +32,9 @@ export const MainComponent = styled.section`
     }1
   }
   .body-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    ${displayFlex('column', 'center', 'center')}
     .filme-information-content {
-      display: flex;
-      align-items: center;
+      ${displayFlex('row', 'none', 'center')}
       .image-content {
         img {
           width: 170px;
@@ -45,18 +54,12 @@ export const MainComponent = styled.section`
       }
     }
     .search-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      ${displayFlex('column', 'center', 'center')}
       margin-top: 3rem;
       padding: 2rem;
       width: 270px;
       button {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        ${displayFlex('row', 'center', 'center')}
         padding: 0.5rem 1rem 0.5rem;
         span {
           font-size: 1.5rem;
